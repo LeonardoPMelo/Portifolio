@@ -1,0 +1,270 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    /* Paleta baseada na imagem:
+      --primaria e --secundaria: Tons de cinza claro/médio para gradientes e destaques (como a caneta e o texto secundário)
+      --claro: O texto principal (branco/off-white como o nome)
+      --escuro e --maisEscuro: O fundo de carvão/preto da mesa
+    */
+    --primaria: #cccccc;   /* Cinza claro (para gradientes e destaques) */
+    --secundaria: #a0a0a0; /* Cinza médio (para gradientes e bordas) */
+    --escuro: #212121;     /* Cinza carvão (fundo principal da imagem) */
+    --maisEscuro: #1a1a1a; /* Tom mais escuro (próximo ao preto) */
+    --claro: #e5e5e5;      /* Texto principal (cor do nome "Leonardo") */
+    --vidro: rgba(255, 255, 255, 0.1)
+}
+
+body {
+    background-color: var(--escuro);
+    color: var(--claro);
+}
+
+.navegacao {
+    /* Usando o tom mais escuro com transparência */
+    background-color: rgba(26, 26, 26, 0.8); /* Baseado no --maisEscuro */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 1.5rem;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 3rem;
+}
+
+.menu-link {
+    text-decoration: none;
+    color: var(--claro);
+    font-weight: 500;
+    position: relative;
+    padding: 0.5rem 0;
+
+}
+
+.menu-link::after {
+    content: '';
+    height: 2px;
+    width: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    /* Gradiente sutil de cinza */
+    background: linear-gradient(90deg, var(--primaria), var(--secundaria));
+    transition: 0.5s ease;
+}
+
+.menu-link:hover::after {
+    width: 100%;
+}
+
+.cabecalho {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.foto-perfil {
+    width: 260px;
+    height: 260px;
+    /* Sombra trocada para um cinza claro, baseado no --primaria */
+    box-shadow: 0 0 20px rgba(204, 204, 204, 0.3);
+    border-radius: 50%;
+    border: 4px solid var(--vidro);
+    animation: flutuar 5s ease-in-out infinite;
+}
+
+h1 {
+    font-size: 3.5rem;
+    color: var(--primaria); /* Cor de destaque (cinza claro) */
+    font-weight: bold;
+    margin: 20px;
+}
+
+.cabecalho-subtitulo {
+    font-size: 1.5rem;
+    color: var(--claro); /* Cor do texto principal */
+
+}
+
+.sobre {
+    min-height: 100vh;
+    padding: 6rem 2rem;
+
+}
+
+.sobre-titulo {
+    font-size: 3rem;
+    color: var(--claro);
+    text-align: center;
+    font-weight: bold;
+    margin: 20px;
+}
+
+.sobre-caixa {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 16px;
+    border: 1px solid var(--vidro);
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.sobre-paragrafo {
+    text-align: center;
+    font-size: 1.5rem;
+
+}
+
+.projetos {
+    padding: 6rem 2rem;
+}
+
+.projetos-caixa {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.projetos-titulo {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+
+.projetos-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--vidro);
+    overflow: hidden;
+    transition: all 0.5 ease;
+    cursor: pointer;
+}
+
+.projetos-card:hover {
+    /* Sombra trocada para um cinza claro */
+    box-shadow: 0 10px 20px rgba(204, 204, 204, 0.2);
+    transform: translateY(-10px) scale(1.03);
+}
+
+.projetos-imagem {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.caixa-texto-projetos{
+    padding: 1.5rem;
+}
+
+.paragrafo-projetos {
+    color: rgba(226, 232, 240, 0.8);
+    line-height: 1.25rem;
+}
+
+.info-projetos {
+    margin-bottom: 5px;
+}
+
+.contatos {
+    padding: 6rem 2rem;
+}
+
+.contatos-titulo {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+.formulario-contato {
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    padding: 2rem;
+    border: 1px solid var(--vidro);
+    border-radius: 16px;
+}
+
+.campo-form {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    color: var(--claro);
+    border: 1px solid var(--vidro);
+    outline: none;
+}
+
+.campo-form:focus {
+    border-color: var(--secundaria); /* Borda em cinza médio */
+    /* Sombra trocada para um cinza claro */
+    box-shadow: 0 0 10px rgba(204, 204, 204, 0.3);
+}
+
+.grupo-form {
+    margin-bottom: 1.5rem;
+}
+
+.botao-form {
+    color: var(--claro);
+    /* Gradiente sutil de cinza */
+    background: linear-gradient(45deg, var(--primaria), var(--secundaria));
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    transition: all 0.5 ease;
+}
+
+.botao-form:hover {
+    transform: translateY(-4px);
+    /* Sombra trocada para um cinza claro */
+    box-shadow: 0 0 10px rgba(204, 204, 204, 0.4);
+}
+
+.particulas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.5;
+    /* "Manchas" de fundo agora são tons de cinza */
+    background: 
+    radial-gradient(circle at 10% 20%, var(--primaria) 0%, transparent 20%),
+    radial-gradient(circle at 10% 20%, var(--secundaria) 0%, transparent 20%),
+    var(--escuro);
+}
+
+@keyframes flutuar {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
